@@ -135,6 +135,8 @@ class ExpandableTextView @JvmOverloads constructor(
         if (initialText?.isBlank()!!)
             return
 
+        if(!isExpanded && initialText?.length == visibleText.length) return
+
         text = if (isExpanded || visibleText.isAllTextVisible() || mCollapsedLines!! == COLLAPSED_MAX_LINES) {
             SpannableStringBuilder(
                 initialText.toString())
